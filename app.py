@@ -65,7 +65,26 @@ labels = {
         "temp_label": "சராசரி வெப்பநிலை (டிகிரி செல்சியஸ்)",
         "submit_button": "முன்னேற்று",
         "result_label": "பயிர் உதவி உத்தியாக்கல்: "
+    },
+    "bn": {
+        "country_label": "দেশ",
+        "crop_label": "ফসল",
+        "rainfall_label": "গড় বৃষ্টিপাত (মিমি-প্রতি-বছর)",
+        "pesticides_label": "কীটনাশক প্রতি টন ব্যবহার (কার্যকর উপাদানের টন)",
+        "temp_label": "গড় তাপমাত্রা (ডিগ্রি সেলসিয়াস)",
+        "submit_button": "পূর্বাভাস",
+        "result_label": "ফসলের উৎপাদন: "
+    },
+    "gu": {
+        "country_label": "દેશ",
+        "crop_label": "માંગો",
+        "rainfall_label": "સરેરાશ વર્ષિક વર્ષાવાર વરસાદ (મિમી-પ્રતિ-વર્ષ)",
+        "pesticides_label": "કીટનાશક પ્રતિ ટન ઉપયોગ (કાર્યાકાર તત્વોના ટન)",
+        "temp_label": "સરેરાશ તાપમાન (ડિગ્રી સેલ્સિયસ)",
+        "submit_button": "અગ્રિમ",
+        "result_label": "માંગો ઉત્પાદન: "
     }
+
 }
 
 # Streamlit Function For Building Button & app.
@@ -76,7 +95,7 @@ def main():
     set_png_as_page_bg('img.png')
 
     # Language selection
-    language = st.selectbox("Select Language", ["English", "French", "Marathi", "Hindi", "Tamil"])
+    language = st.selectbox("Select Language", ["English", "French", "Marathi", "Hindi", "Tamil", "Bengali", "Gujarati"])
     if language == "English":
         lang = "en"
     elif language == "French":
@@ -85,8 +104,13 @@ def main():
         lang = "mr"
     elif language == "Hindi":
         lang = "hi"
-    else:
+    elif language == "Tamil":
         lang = "ta"
+    elif language == "Bengali":
+        lang = "bn"
+    elif language == "Gujarati":
+        lang = "gu"
+
     
     country = st.selectbox(labels[lang]["country_label"], df_main['area'].unique()) 
     crop = st.selectbox(labels[lang]["crop_label"], df_main['item'].unique()) 
